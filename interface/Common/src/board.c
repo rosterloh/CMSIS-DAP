@@ -66,6 +66,10 @@
 #define BOARD_ID        "9004"
 #define BOARD_SECRET    "xxxxxxxx"
 
+#elif defined (BOARD_SEEED_ARCH_BLE)
+#define BOARD_ID        "9009"
+#define BOARD_SECRET    "xxxxxxxx"
+
 #elif defined (BOARD_UBLOX_C027)
 #define BOARD_ID        "1234"
 #define BOARD_SECRET    "xxxxxxxx"
@@ -92,6 +96,14 @@
 
 #elif defined (BOARD_LPC4337)
 #define BOARD_ID        "1062"
+#define BOARD_SECRET    "xxxxxxxx"
+
+#elif defined (BOARD_NRF51822AA)
+#define BOARD_ID        "1070"
+#define BOARD_SECRET    "xxxxxxxx"
+
+#elif defined (BOARD_MBED_GATEWAY)
+#define BOARD_ID        "5020"
 #define BOARD_SECRET    "xxxxxxxx"
 
 #endif

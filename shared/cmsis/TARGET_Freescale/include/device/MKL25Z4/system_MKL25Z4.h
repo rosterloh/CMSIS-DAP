@@ -91,7 +91,67 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
+#include "stdint.h"
+
+
+#define DISABLE_WDOG    1
+
+#ifndef CLOCK_SETUP
+  #define CLOCK_SETUP     0
+#endif
+/* Predefined clock setups
+   0 ... Multipurpose Clock Generator (MCG) in FLL Engaged Internal (FEI) mode
+         Default  part configuration.
+         Reference clock source for MCG module is the slow internal clock source 32.768kHz
+         Core clock = 20.97MHz, BusClock = 20.97MHz
+   1 ... Multipurpose Clock Generator (MCG) in PLL Engaged External (PEE) mode
+         Maximum achievable clock frequency configuration.
+         Reference clock source for MCG module is an external crystal 8MHz
+         Core clock = 48MHz, BusClock = 24MHz
+   2 ... Multipurpose Clock Generator (MCG) in Bypassed Low Power Internal (BLPI) mode
+         Core clock/Bus clock derived directly from an fast internal clock 4MHz with no multiplication
+         The clock settings is ready for Very Low Power Run mode.
+         Core clock = 4MHz, BusClock = 0.8MHz
+   3 ... Multipurpose Clock Generator (MCG) in Bypassed Low Power External (BLPE) mode
+         Core clock/Bus clock derived directly from the external crystal 8MHz with no multiplication
+         The clock settings is ready for Very Low Power Run mode.
+         Core clock = 4MHz, BusClock = 1MHz
+   4 ... Multipurpose Clock Generator (MCG) in PLL Engaged External (PEE) mode
+         USB clock setup - for USB to receive 48MHz input clock.
+         Reference clock source for MCG module is an external crystal 8MHz
+         Core clock = 48MHz, BusClock = 24MHz
+*/
+
+/*----------------------------------------------------------------------------
+  Define clock source values
+ *----------------------------------------------------------------------------*/
+#if (CLOCK_SETUP == 0)
+    #define CPU_XTAL_CLK_HZ                 8000000u /* Value of the external crystal or oscillator clock frequency in Hz */
+    #define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+    #define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+    #define DEFAULT_SYSTEM_CLOCK            20485760u /* Default System clock value */
+#elif (CLOCK_SETUP == 1)
+    #define CPU_XTAL_CLK_HZ                 8000000u /* Value of the external crystal or oscillator clock frequency in Hz */
+    #define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+    #define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+    #define DEFAULT_SYSTEM_CLOCK            48000000u /* Default System clock value */
+#elif (CLOCK_SETUP == 2)
+    #define CPU_XTAL_CLK_HZ                 8000000u /* Value of the external crystal or oscillator clock frequency in Hz */
+    #define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+    #define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+    #define DEFAULT_SYSTEM_CLOCK            4000000u /* Default System clock value */
+#elif (CLOCK_SETUP == 3)
+    #define CPU_XTAL_CLK_HZ                 8000000u /* Value of the external crystal or oscillator clock frequency in Hz */
+    #define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+    #define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+    #define DEFAULT_SYSTEM_CLOCK            4000000u /* Default System clock value */
+#elif (CLOCK_SETUP == 4)
+    #define CPU_XTAL_CLK_HZ                 8000000u /* Value of the external crystal or oscillator clock frequency in Hz */
+    #define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+    #define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+    #define DEFAULT_SYSTEM_CLOCK            48000000u /* Default System clock value */
+#endif
+
 
 
 #define DISABLE_WDOG    1

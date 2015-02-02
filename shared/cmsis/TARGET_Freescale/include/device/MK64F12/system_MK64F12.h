@@ -89,7 +89,62 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
+#include "stdint.h"
+
+
+#define DISABLE_WDOG    1
+
+#ifndef CLOCK_SETUP
+  #define CLOCK_SETUP   0
+#endif
+
+/* Predefined clock setups
+   0 ... Default  part configuration
+         Multipurpose Clock Generator (MCG) in FEI mode.
+         Reference clock source for MCG module: Slow internal reference clock
+         Core clock = 20.97152MHz
+         Bus clock  = 20.97152MHz
+   1 ... Maximum achievable clock frequency configuration
+         Multipurpose Clock Generator (MCG) in PEE mode.
+         Reference clock source for MCG module: System oscillator 0 reference clock
+         Core clock = 120MHz
+         Bus clock  = 60MHz
+   2 ... Chip internaly clocked, ready for Very Low Power Run mode.
+         Multipurpose Clock Generator (MCG) in BLPI mode.
+         Reference clock source for MCG module: Fast internal reference clock
+         Core clock = 4MHz
+         Bus clock  = 4MHz
+   3 ... Chip externally clocked, ready for Very Low Power Run mode.
+         Multipurpose Clock Generator (MCG) in BLPE mode.
+         Reference clock source for MCG module: RTC oscillator reference clock
+         Core clock = 0.032768MHz
+         Bus clock  = 0.032768MHz
+   4 ... USB clock setup
+         Multipurpose Clock Generator (MCG) in PEE mode.
+         Reference clock source for MCG module: System oscillator 0 reference clock
+         Core clock = 120MHz
+         Bus clock  = 60MHz
+ */
+
+/* Define clock source values */
+
+#define CPU_XTAL_CLK_HZ                 50000000u   /* Value of the external crystal or oscillator clock frequency in Hz */
+#define CPU_XTAL32k_CLK_HZ              32768u /* Value of the external 32k crystal or oscillator clock frequency in Hz */
+#define CPU_INT_SLOW_CLK_HZ             32768u   /* Value of the slow internal oscillator clock frequency in Hz  */
+#define CPU_INT_FAST_CLK_HZ             4000000u /* Value of the fast internal oscillator clock frequency in Hz  */
+#define CPU_INT_IRC_CLK_HZ              48000000u /* Value of the 48M internal oscillator clock frequency in Hz  */
+
+#if (CLOCK_SETUP == 0)
+  #define DEFAULT_SYSTEM_CLOCK            20971520u /* Default System clock value */
+#elif (CLOCK_SETUP == 1)
+  #define DEFAULT_SYSTEM_CLOCK            120000000u /* Default System clock value */
+#elif (CLOCK_SETUP == 2)
+  #define DEFAULT_SYSTEM_CLOCK            4000000u /* Default System clock value */
+#elif (CLOCK_SETUP == 3)
+  #define DEFAULT_SYSTEM_CLOCK            32768u /* Default System clock value */
+#elif (CLOCK_SETUP == 4)
+  #define DEFAULT_SYSTEM_CLOCK            120000000u /* Default System clock value */
+#endif
 
 
 #define DISABLE_WDOG    1

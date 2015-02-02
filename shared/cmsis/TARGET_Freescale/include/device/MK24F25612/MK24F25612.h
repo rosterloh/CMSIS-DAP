@@ -75,7 +75,11 @@
 #endif /* (defined(MCU_ACTIVE)) */
 #define MCU_ACTIVE
 
+<<<<<<< HEAD
 #include <stdint.h>
+=======
+#include "stdint.h"
+>>>>>>> xiongyihui/arch_ble
 
 /** Memory map major version (memory maps with equal major version number are
  * compatible) */

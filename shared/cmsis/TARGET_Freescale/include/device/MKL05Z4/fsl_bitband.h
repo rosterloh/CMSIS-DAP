@@ -17,8 +17,13 @@
 #ifndef _FSL_BITBAND_H
 #define _FSL_BITBAND_H  1
 
+<<<<<<< HEAD
 #include <stdint.h>
 #include <stdlib.h>
+=======
+#include "stdint.h"
+#include "stdlib.h"
+>>>>>>> xiongyihui/arch_ble
 
 #define BME_AND_MASK  (1<<26)
 #define BME_OR_MASK   (1<<27)
