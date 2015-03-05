@@ -14,13 +14,14 @@
  * limitations under the License.
  */
  
-#include "sam3u.h"
+//#include "sam3u.h"
 #include "RTL.h"
 #include "debug_cm.h"
 #include "target_reset.h"
 #include "swd_host.h"
 #include "gpio.h"
 #include "target_flash.h"
+#include "DAP_config.h"
 
 /*static const uint32_t nrfBlinkyApp[200] = {0x20000810,0x000000F5,0x00000107,0x00000109,0x00000000,
 		0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x0000010B,0x00000000,
@@ -120,7 +121,7 @@ uint8_t target_unlock_sequence(void) {
 }
 
 uint8_t target_set_state(TARGET_RESET_STATE state) {
-	uint32_t  count=0;
+	/*uint32_t  count=0;
 	//Check for 5 Second emergency erase routine
 	while(!((PIOA->PIO_PDSR >> 25) &1)){
         os_dly_wait(1);
@@ -133,4 +134,22 @@ uint8_t target_set_state(TARGET_RESET_STATE state) {
     }
     gpio_set_dap_led(1);
     return swd_set_target_state(state);
+	*/
+	if (RESET_RUN == state) {
+			const uint32_t POWER_RESET_ADDR = (0x40000000 + 0x544);
+      const uint32_t POWER_RESET_DATA = 0x01;
+                
+      swd_read_memory(POWER_RESET_ADDR, (uint8_t *)&POWER_RESET_DATA, 4);
+        
+      PIN_SWDIO_OUT_ENABLE();
+      PIN_SWDIO_OUT(0);
+      PIN_SWCLK_TCK_CLR();
+        
+      os_dly_wait(1);
+        
+      PIN_SWDIO_OUT(1);
+  }
+    
+  return swd_set_target_state(state);
 }
+

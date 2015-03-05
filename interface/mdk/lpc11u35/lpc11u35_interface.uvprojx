@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_projx.xsd">
 
-  <SchemaVersion>1.1</SchemaVersion>
+  <SchemaVersion>2.1</SchemaVersion>
 
   <Header>### uVision Project, (C) Keil Software</Header>
 
@@ -12,14 +12,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -29,14 +31,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -72,6 +74,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -102,11 +106,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -141,7 +145,6 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>7</TargetSelection>
@@ -172,7 +175,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -336,7 +339,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -588,7 +591,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -1036,32 +1039,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1073,14 +1086,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -1090,14 +1105,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -1133,6 +1148,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -1163,11 +1180,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -1202,10 +1219,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>8</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -1219,7 +1235,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\ULP2CM3.DLL</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -1232,8 +1248,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -1367,8 +1383,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x5000</StartAddress>
-                <Size>0xb000</Size>
+                <StartAddress>0x0</StartAddress>
+                <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -1392,12 +1408,12 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x100000c0</StartAddress>
-                <Size>0x1f40</Size>
+                <StartAddress>0x10000000</StartAddress>
+                <Size>0x2000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -1649,7 +1665,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -2097,32 +2113,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2134,14 +2160,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -2151,14 +2179,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -2194,6 +2222,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -2224,11 +2254,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -2263,10 +2293,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>14</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -2280,7 +2309,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\CMSIS_AGDI.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -2293,8 +2322,8 @@
             <DriverSelection>4100</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -2458,7 +2487,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -2710,7 +2739,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -3381,32 +3410,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3418,14 +3457,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -3435,14 +3476,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -3478,6 +3519,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -3508,11 +3551,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -3547,10 +3590,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>7</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -3564,7 +3606,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\ULP2CM3.DLL</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -3577,8 +3619,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -3742,7 +3784,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -3994,7 +4036,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -4442,32 +4484,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4479,14 +4531,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -4496,14 +4550,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -4539,6 +4593,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -4569,11 +4625,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -4608,10 +4664,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>14</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -4625,7 +4680,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\CMSIS_AGDI.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -4638,8 +4693,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -4803,7 +4858,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -5055,7 +5110,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -5503,32 +5558,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -5540,14 +5605,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -5557,14 +5624,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -5600,6 +5667,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -5630,11 +5699,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -5669,10 +5738,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>14</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -5686,7 +5754,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\CMSIS_AGDI.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -5699,8 +5767,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -5864,7 +5932,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -6116,7 +6184,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -6564,32 +6632,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -6601,14 +6679,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -6618,14 +6698,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -6661,6 +6741,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -6691,11 +6773,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -6730,10 +6812,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>7</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -6747,7 +6828,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\ULP2CM3.DLL</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -6760,8 +6841,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -6925,7 +7006,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -7177,7 +7258,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -7625,32 +7706,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -7662,14 +7753,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -7679,14 +7772,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -7722,6 +7815,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -7752,11 +7847,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -7791,7 +7886,6 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
           <TargetSelection>1</TargetSelection>
@@ -7821,8 +7915,8 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -7986,7 +8080,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -8238,7 +8332,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
             </File>
           </Files>
@@ -8952,32 +9046,42 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-nRF51822</GroupName>
           <Files>
             <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
+              <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-STM32F407</GroupName>
+          <Files>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -8989,14 +9093,16 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC11U35/401</Device>
-          <Vendor>NXP (founded by Philips)</Vendor>
-          <Cpu>IRAM(0x10000000-0x10001FFF) IRAM2(0x20004000-0x200047FF) IROM(0-0xFFFF) CLOCK(12000000) CPUTYPE("Cortex-M0")</Cpu>
+          <Device>LPC11U35FHN33/401</Device>
+          <Vendor>NXP</Vendor>
+          <PackID>Keil.LPC1100_DFP.1.3.0</PackID>
+          <PackURL>http://www.keil.com/pack/</PackURL>
+          <Cpu>IROM(0x00000000,0x10000) IRAM(0x10000000,0x2000) IRAM2(0x20004000,0x0800) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC11Uxx\startup_LPC11Uxx.s" ("NXP LPC11Uxx Startup Code")</StartupFile>
-          <FlashDriverDll>UL2CM3(-O4303 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000)</FlashDriverDll>
-          <DeviceId>6505</DeviceId>
-          <RegisterFile>LPC11Uxx.h</RegisterFile>
+          <StartupFile></StartupFile>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC1xxx_64 -FS00 -FL010000 -FP0($$Device:LPC11U35FHN33/401$Flash\LPC1xxx_64.FLM))</FlashDriverDll>
+          <DeviceId>0</DeviceId>
+          <RegisterFile>$$Device:LPC11U35FHN33/401$Device\Include\LPC11Uxx\LPC11Uxx.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -9006,14 +9112,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>SFD\NXP\LPC11Uxx\LPC11Uxx.SFR</SFDFile>
+          <SFDFile>$$Device:LPC11U35FHN33/401$SVD\LPC11Uxx.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC11Uxx\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC11Uxx\</DBRegisterFilePath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -9021,14 +9127,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Obj\</OutputDirectory>
+          <OutputDirectory>.\</OutputDirectory>
           <OutputName>lpc11u35_nrf51822_if</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Lst\lpc11u35_lpc1114\</ListingPath>
+          <ListingPath>.\Lst\lpc11u35_lpc812\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -9049,6 +9155,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopB1X>0</nStopB1X>
+            <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
@@ -9079,11 +9187,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments></SimDllArguments>
+          <SimDllArguments> </SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments></TargetDllArguments>
+          <TargetDllArguments> </TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -9118,10 +9226,9 @@
             <RestoreToolbox>1</RestoreToolbox>
             <RestoreTracepoints>0</RestoreTracepoints>
             <RestoreSysVw>1</RestoreSysVw>
-            <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>1</TargetSelection>
+          <TargetSelection>7</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -9135,7 +9242,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\UL2CM3.DLL</Driver>
+            <Driver>BIN\ULP2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -9149,7 +9256,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\ULP2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -9313,7 +9420,7 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20004000</StartAddress>
                 <Size>0x800</Size>
               </OCR_RVCT10>
             </OnChipMemories>
@@ -9337,9 +9444,9 @@
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>TARGET_LPC11U35, __RTX,DBG_NRF51822AA, BOARD_NRF51822AA</Define>
+              <Define>TARGET_LPC11U35, __RTX, DBG_NRF51822AA, BOARD_SEEED_ARCH_BLE, AUTO_RUN</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\shared\USBStack\INC;..\..\Common\inc;..\..\Common\src;..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA;..\..\interface\hal\TARGET_NXP\TARGET_LPC11U35;..\..\interface\cmsis;..\..\interface\cmsis\TARGET_NXP\TARGET_LPC11UXX;..\..\..\shared\rtos;..\..\..\shared\cmsis</IncludePath>
+              <IncludePath>..\..\..\shared\USBStack\INC;..\..\Common\inc;..\..\Common\src;..\..\target\hal\DBG_NordicSemi\DBG_nRF51822;..\..\interface\hal\TARGET_NXP\TARGET_LPC11U35;..\..\interface\cmsis;..\..\interface\cmsis\TARGET_NXP\TARGET_LPC11UXX;..\..\..\shared\rtos;..\..\..\shared\cmsis</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -9565,7 +9672,7 @@
             </File>
             <File>
               <FileName>intelhex.c</FileName>
-              <FileType>1</FileType>
+              <FileType>8</FileType>
               <FilePath>..\..\Common\src\intelhex.c</FilePath>
               <FileOption>
                 <CommonProperty>
@@ -9596,7 +9703,7 @@
                     <PlainCh>2</PlainCh>
                     <Ropi>2</Ropi>
                     <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
+                    <wLevel>2</wLevel>
                     <uThumb>2</uThumb>
                     <uSurpInc>2</uSurpInc>
                     <uC99>2</uC99>
@@ -9815,81 +9922,11 @@
         </Group>
         <Group>
           <GroupName>HAL-Target-LPC1114</GroupName>
-          <GroupOption>
-            <CommonProperty>
-              <UseCPPCompiler>0</UseCPPCompiler>
-              <RVCTCodeConst>0</RVCTCodeConst>
-              <RVCTZI>0</RVCTZI>
-              <RVCTOtherData>0</RVCTOtherData>
-              <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
-              <AlwaysBuild>2</AlwaysBuild>
-              <GenerateAssemblyFile>2</GenerateAssemblyFile>
-              <AssembleAssemblyFile>2</AssembleAssemblyFile>
-              <PublicsOnly>2</PublicsOnly>
-              <StopOnExitCode>11</StopOnExitCode>
-              <CustomArgument></CustomArgument>
-              <IncludeLibraryModules></IncludeLibraryModules>
-              <ComprImg>1</ComprImg>
-            </CommonProperty>
-            <GroupArmAds>
-              <Cads>
-                <interw>2</interw>
-                <Optim>0</Optim>
-                <oTime>2</oTime>
-                <SplitLS>2</SplitLS>
-                <OneElfS>2</OneElfS>
-                <Strict>2</Strict>
-                <EnumInt>2</EnumInt>
-                <PlainCh>2</PlainCh>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <wLevel>0</wLevel>
-                <uThumb>2</uThumb>
-                <uSurpInc>2</uSurpInc>
-                <uC99>2</uC99>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Cads>
-              <Aads>
-                <interw>2</interw>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <thumb>2</thumb>
-                <SplitLS>2</SplitLS>
-                <SwStkChk>2</SwStkChk>
-                <NoWarn>2</NoWarn>
-                <uSurpInc>2</uSurpInc>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Aads>
-            </GroupArmAds>
-          </GroupOption>
           <Files>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC1114\target_reset.c</FilePath>
-            </File>
-            <File>
-              <FileName>target_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NXP\target_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>lpc1114_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC1114\lpc1114_app_config.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -9897,7 +9934,7 @@
                   <RVCTZI>0</RVCTZI>
                   <RVCTOtherData>0</RVCTOtherData>
                   <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
+                  <IncludeInBuild>0</IncludeInBuild>
                   <AlwaysBuild>2</AlwaysBuild>
                   <GenerateAssemblyFile>2</GenerateAssemblyFile>
                   <AssembleAssemblyFile>2</AssembleAssemblyFile>
@@ -9925,7 +9962,7 @@
                     <uC99>2</uC99>
                     <useXO>2</useXO>
                     <VariousControls>
-                      <MiscControls>--gnu --c99</MiscControls>
+                      <MiscControls></MiscControls>
                       <Define></Define>
                       <Undefine></Undefine>
                       <IncludePath></IncludePath>
@@ -9934,70 +9971,63 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NXP\target_flash.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>lpc1114_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC1114\lpc1114_app_config.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>HAL-Target-LPC1768</GroupName>
-          <GroupOption>
-            <CommonProperty>
-              <UseCPPCompiler>0</UseCPPCompiler>
-              <RVCTCodeConst>0</RVCTCodeConst>
-              <RVCTZI>0</RVCTZI>
-              <RVCTOtherData>0</RVCTOtherData>
-              <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
-              <AlwaysBuild>2</AlwaysBuild>
-              <GenerateAssemblyFile>2</GenerateAssemblyFile>
-              <AssembleAssemblyFile>2</AssembleAssemblyFile>
-              <PublicsOnly>2</PublicsOnly>
-              <StopOnExitCode>11</StopOnExitCode>
-              <CustomArgument></CustomArgument>
-              <IncludeLibraryModules></IncludeLibraryModules>
-              <ComprImg>1</ComprImg>
-            </CommonProperty>
-            <GroupArmAds>
-              <Cads>
-                <interw>2</interw>
-                <Optim>0</Optim>
-                <oTime>2</oTime>
-                <SplitLS>2</SplitLS>
-                <OneElfS>2</OneElfS>
-                <Strict>2</Strict>
-                <EnumInt>2</EnumInt>
-                <PlainCh>2</PlainCh>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <wLevel>0</wLevel>
-                <uThumb>2</uThumb>
-                <uSurpInc>2</uSurpInc>
-                <uC99>2</uC99>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Cads>
-              <Aads>
-                <interw>2</interw>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <thumb>2</thumb>
-                <SplitLS>2</SplitLS>
-                <SwStkChk>2</SwStkChk>
-                <NoWarn>2</NoWarn>
-                <uSurpInc>2</uSurpInc>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Aads>
-            </GroupArmAds>
-          </GroupOption>
           <Files>
             <File>
               <FileName>target_reset.c</FileName>
@@ -10099,162 +10129,16 @@
         </Group>
         <Group>
           <GroupName>HAL-Target-LPC812</GroupName>
-          <GroupOption>
-            <CommonProperty>
-              <UseCPPCompiler>0</UseCPPCompiler>
-              <RVCTCodeConst>0</RVCTCodeConst>
-              <RVCTZI>0</RVCTZI>
-              <RVCTOtherData>0</RVCTOtherData>
-              <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
-              <AlwaysBuild>2</AlwaysBuild>
-              <GenerateAssemblyFile>2</GenerateAssemblyFile>
-              <AssembleAssemblyFile>2</AssembleAssemblyFile>
-              <PublicsOnly>2</PublicsOnly>
-              <StopOnExitCode>11</StopOnExitCode>
-              <CustomArgument></CustomArgument>
-              <IncludeLibraryModules></IncludeLibraryModules>
-              <ComprImg>1</ComprImg>
-            </CommonProperty>
-            <GroupArmAds>
-              <Cads>
-                <interw>2</interw>
-                <Optim>0</Optim>
-                <oTime>2</oTime>
-                <SplitLS>2</SplitLS>
-                <OneElfS>2</OneElfS>
-                <Strict>2</Strict>
-                <EnumInt>2</EnumInt>
-                <PlainCh>2</PlainCh>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <wLevel>0</wLevel>
-                <uThumb>2</uThumb>
-                <uSurpInc>2</uSurpInc>
-                <uC99>2</uC99>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Cads>
-              <Aads>
-                <interw>2</interw>
-                <Ropi>2</Ropi>
-                <Rwpi>2</Rwpi>
-                <thumb>2</thumb>
-                <SplitLS>2</SplitLS>
-                <SwStkChk>2</SwStkChk>
-                <NoWarn>2</NoWarn>
-                <uSurpInc>2</uSurpInc>
-                <useXO>2</useXO>
-                <VariousControls>
-                  <MiscControls></MiscControls>
-                  <Define></Define>
-                  <Undefine></Undefine>
-                  <IncludePath></IncludePath>
-                </VariousControls>
-              </Aads>
-            </GroupArmAds>
-          </GroupOption>
           <Files>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC812\target_reset.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
             </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\target\hal\DBG_NXP\target_flash.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
             </File>
           </Files>
         </Group>
@@ -10265,6 +10149,36 @@
               <FileName>lpc824_app_config.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC824\lpc824_app_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>target_reset.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC824\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NXP\target_flash.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>HAL-Target-nRF51822</GroupName>
+          <Files>
+            <File>
+              <FileName>target_reset.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>target_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\target_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_ble_app_config.c</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822\arch_ble_app_config.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -10294,7 +10208,7 @@
                     <PlainCh>2</PlainCh>
                     <Ropi>2</Ropi>
                     <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
+                    <wLevel>2</wLevel>
                     <uThumb>2</uThumb>
                     <uSurpInc>2</uSurpInc>
                     <uC99>2</uC99>
@@ -10309,45 +10223,25 @@
                 </FileArmAds>
               </FileOption>
             </File>
-            <File>
-              <FileName>target_reset.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NXP\DBG_LPC824\target_reset.c</FilePath>
-            </File>
-            <File>
-              <FileName>target_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NXP\target_flash.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>HAL-Target-NRF51822</GroupName>
+          <GroupName>HAL-Target-STM32F407</GroupName>
           <Files>
-            <File>
-              <FileName>nrf51822_dk_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dk_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_dongle_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_dongle_app_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf51822_mkit_app_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\nrf51822_mkit_app_config.c</FilePath>
-            </File>
             <File>
               <FileName>target_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_flash.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_flash.c</FilePath>
             </File>
             <File>
               <FileName>target_reset.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\target\hal\DBG_NordicSemi\DBG_nRF51822AA\target_reset.c</FilePath>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\target_reset.c</FilePath>
+            </File>
+            <File>
+              <FileName>arch_max_app_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\target\hal\DBG_ST\DBG_STM32F407\arch_max_app_config.c</FilePath>
             </File>
           </Files>
         </Group>
